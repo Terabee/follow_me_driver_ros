@@ -169,6 +169,12 @@ if(BUILD_EXAMPLES)
     examples/example_follow_me_subscriber.cpp
   )
 
+  add_dependencies(example_follow_me_subscriber
+    follow_me_driver_ros_generate_messages_cpp
+    ${follow_me_remote_control_EXPORTED_TARGETS}
+    ${catkin_EXPORTED_TARGETS}
+  )
+
   target_link_libraries(example_follow_me_subscriber
     ${catkin_LIBRARIES}
     hardware_drivers::follow_me_driver
